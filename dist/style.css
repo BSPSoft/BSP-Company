@@ -679,4 +679,9 @@
      margin-top:2em;
    }
 
+   /*services.html*/
+   .service-container .service-content{
+      max-width: 80%;
+   }
+
 }   
