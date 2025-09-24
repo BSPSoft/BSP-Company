@@ -11,6 +11,10 @@
         'index':0,
         'images':['voting1.jpg','voting2.jpg','voting3.jpg','voting4.jpg','voting5.jpg']
         },
+        'BspSchool':{
+        'index':0,
+        'images':['School1.jpg','School2.jpg','School3.jpg','School4.jpg','School5.jpg']
+      },
       'profile':{
         'index':0,
         'images':['profile1.jpg','profile2.jpg','profile3.jpg']
@@ -45,9 +49,32 @@
          votingSlider.setAttribute('src','images/project/'+imageSliderProjects.voting.images[imageSliderProjects.voting.index]);
         break;
 
+     // project BSP School
+      case 2:
+         let schoolSlider =document.getElementById('schoolSlider');
+         const totalslidesBSPSchool =imageSliderProjects.BspSchool.images.length;
+         if(state==='next'  ){
+          imageSliderProjects.BspSchool.index ++;
+         }else{
+          imageSliderProjects.BspSchool.index --;
+         }
+         
+         if(imageSliderProjects.BspSchool.index === totalslidesBSPSchool){imageSliderProjects.BspSchool.index=0};
+         if(imageSliderProjects.BspSchool.index === -1){imageSliderProjects.BspSchool.index= totalslidesBSPSchool -1};
+       
+        
+         if(imageSliderProjects.BspSchool.index>=totalslidesBSPSchool){
+           imageSliderProjects.BspSchool.index =0;
+         }else if(imageSliderProjects.BspSchool.index < 0 ){
+          imageSliderProjects.BspSchool.index=totalslidesBSPSchool -1;
+         }else{
+          imageSliderProjects.BspSchool.index=imageSliderProjects.BspSchool.index;
+         }
+         schoolSlider.setAttribute('src','images/project/'+imageSliderProjects.BspSchool.images[imageSliderProjects.BspSchool.index]);
+        break;
 
        // project profile 
-      case 2:
+      case 3:
       let profileSlider=document.getElementById('profileSlider');
          const totalslidesP=imageSliderProjects.profile.images.length;
          if(state==='next'  ){
