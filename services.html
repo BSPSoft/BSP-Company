@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="stylesheet" href="dist/style.css"> 
+  <link rel="stylesheet" href="dist/style.css">
   <title>services us</title>
   <style>
   body{
-    background-color: #111c;
+    background-color:#ccc;/* #111c;*/
+      position: relative;
+      box-sizing: border-box;
   }
     .service-container{
       position: relative;
@@ -18,6 +19,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
     .service-container img{
       width:100vw;
@@ -41,21 +43,114 @@
       border-radius: 10px;
       width: 90%;
       margin-bottom: 0.7em;
+      text-align:center;
     }
-    .service-content .service-title h2{
+    .service-content .service-title h1{
       margin:1em 10px;
       
+    }
+    .service-content .service-title p{
+      margin:1em 10px;
+      color: #777;
     }
     
     .service-content .service-body{
       background-color:#fff ;
-      padding: 20px;
+      padding:30px 10px;
       border-radius: 10px;
       width: 90%;
       line-height: 25px;
       margin-bottom: 0.7em;
+      position: relative;
     }
+    
+    .service-body .num_service{
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      padding: 10px 20px;
+      background-color: #ddc71e;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius:50%;
+    }
+   
+     #last{
+       margin-bottom: 0;
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+    }
+    
+
+ .text-col{
+   flex:1;
+   min-width:260px;
+   margin-top: 25px;
+ }
+
+  p.lead{
+    margin:0 0 22px 0;
+    color:#5b6470;
+    line-height:1.65;
+    font-size:16px;
+  }
+
+  .key{
+    font-weight:700;
+    margin:6px 0 12px 0;
+    font-size:20px;
+  }
+
+  ul.features{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap:12px;
+  }
+
+  ul.features li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    color:#1f2937;
+    font-size:16px;
+    line-height:1.4;
+  }
+
+  /* check icon */
+  .check{
+    flex:0 0 28px;
+    height:28px;
+    display:inline-grid;
+    place-items:center;
+    background:linear-gradient(180deg,#e6f0ff,#f7fbff);
+    border-radius:8px;
+    border:1px solid rgba(11,108,255,0.12);
+    color:#0b6cff;
+    font-weight:700;
+    box-shadow:0 2px 6px rgba(11,108,255,0.06) inset;
+  }
+    .convex-wrap{
+    width:100%;
+    height:220px;
+    position:relative;
+    overflow:visible;
+    background:transparent;
+  }
+
+  /* سنستخدم clip-path عبر svg لتصميم حد علوي محدب */
+  .convex-img{
+    display:block;
+    margin:10px 0;
+    max-width: 95%;
+    max-height: 90%;
+    border-radius: 26px;
+  }
+  /*
     .service-content .service-body p{
+      color:#666;
       font-size: 1em;
       font-weight: 500;
     }
@@ -65,7 +160,52 @@
       font-size: 1.2em;
       font-weight: 500;
     }
+  */
+  
+ .div-row{
+    display: flex;
     
+    gap:10px;
+  }
+
+.div-row .div-col {
+  background: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 5px 3px 0px #ddd;
+  /* flex: 1 1 100%; */
+}
+
+.div-col span{
+  font-size: 22px;
+  font-weight: bold;
+  color:#90cfde ;
+}
+.col-4 span{
+  color:#2c387ebb;
+  font-size: 16px;
+}
+
+.div-row .col-4{
+  
+}
+
+@media (max-width: 768px) {
+  .div-row{
+    flex-direction:column;
+    flex-wrap: wrap;
+  }
+  .div-col {
+    width: 40%;
+    /*flex: 1 1 calc(50% - 10px);*/
+    /* صفين جنب بعض */
+  }
+}
+
+   /*
     .service-body .models {
       display:flex;
       flex-direction: column;
@@ -78,36 +218,70 @@
     .models img{
       max-width: 90%;
     }
+  */
+
+   .hero-footer{
+      background-color:#071b90bb;
+      color: #fff;
+      padding:40px 20px;
+      margin: 0;
+      border-radius: 0;
+      text-align: center;
+      line-height: 30px;
+      display: block;
+      width: 100vw;
+    }    
+    
+    .hero-footer a{
+    margin-top: 1em ;
+    padding: 10px 40px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #071b90;
+    border-radius: 7px;
+    border:1px solid #071b90;
+    cursor: pointer;
+    text-decoration: none;
+    width:250px;
+  }
+  .hero-footer a:hover{
+    background-color: #071b90;
+    color: #fff;
+  }
     
     
+   
+
   </style>
   
 </head>
 <body>
     <!-- header -->
    <header>
-     <img src="images/Logo2.png" alt="Home">
+     <h1 id="logo">BSP <span>Soft</span></h1>
      <nav>
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Objects</a>
-        <a href="#">Membars</a>
-        <a href="#">Customer Opinions</a>
-        <a href="#">Contact us</a>
-        <a href="CoinInfo.html">About</a>
-        <a href="#">icon</a>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="projects.html">Projects</a>
+        <a href="#members">Membars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact us</a>
+        <a href="#"><i class="ri-translate-2"></i>ع</a>
+        <a href="#"><i class="ri-sun-line"></i></a>
      </nav>
      <div id="menubtn"><i class="ri-menu-line"></i></div>
      <div id="navMenu" class="hidden">
        <nav>
-        <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Objects</a>
-        <a href="#">Membars</a>
-        <a href="#">Customer Opinions</a>
-        <a href="#">Contact us</a>
-        <a href="#">About</a>
-        <a href="#"><i class="ri-sun-line"></i></a>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="packages.html">Packages</a>
+            <a href="projects.html">Projects</a>
+            <a href="#members">Membars</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
+            <a href="#"><i class="ri-translate-2"></i>ع</a>
+            <a href="#"><i class="ri-sun-line"></i></a>
       </nav>
     </div>
      
@@ -117,87 +291,292 @@
   
  <!-- services container -->
   <div class="service-container">
-    <img src="images/web-development.jpeg" alt="web development">
+    <img src="images/services1.jpeg" alt="web development">
    
     <div class="service-content">
       <div class="service-title">
-         <h2>Web Developer</h2>
+         <h1><code>Our Services</code></h1>
+         <p>Comprehensive software solutions tailored to your business needs</p>
+         <br><br>
+         
+         <h3>How We Can Help You ?</h3> 
+         <p> We offer a wide range of services to help you achieve
+            your business goals through innovative software solutions and professional design.. 
+           </b>
+         <br><br>
       </div> 
+      
+      
       <div class="service-body">
-       <p>Create modern, responsive,
-        and user-friendly websites designed to meet your needs. <br>
-        Deliver high-quality solutions with clean code, 
-        ensuring optimal performance and excellent user experience. 
-        <br><br>
-        Using various technologies that help in developing different web applications:
-        </p>  
-        <br>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>PHP</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Next.js</li>
-        </ul>
-        .other 
+       <span class="num_service">1</span>
+       <div class="text-col">
+          <h3>Desktop Application Development</h3>
+          <p class="lead">
+            Our desktop application development services deliver powerful, user-friendly software tailored to your specific business needs.
+            <br> We use the latest technologies and frameworks to create applications that streamline operations, enhance productivity, and provide a seamless user experience.
+          </p>
+          <br>
+  
+          <div class="key">Key Features</div>
+          <ul class="features">
+            <li><span class="check">✓</span><div>Custom application design and development</div></li>
+            <li><span class="check">✓</span><div>Database design and integration</div></li>
+            <li><span class="check">✓</span><div>User interface design with intuitive navigation</div></li>
+            <li><span class="check">✓</span><div>Cross-platform compatibility</div></li>
+            <li><span class="check">✓</span><div>Maintenance and support services</div></li>
+            <li><span class="check">✓</span><div>Legacy system upgrades and migration</div></li>
+          </ul>
+      </div>
+      <div class="convex-wrap">
+        <img class="convex-img" src="images/desktop_service.jpeg" alt="illustration">
+      </div>
         
+       <hr style="color:red; margin-top:20px">
+      </div>
+     
+      <div class="service-body">
+      <span class="num_service">2</span>
+       <div class="text-col">
+          <h3>Web Application Development</h3>
+          <p class="lead">
+            We develop modern, responsive web applications that deliver exceptional user experiences across all devices.
+            <br>
+            Our web development team combines technical expertise with creative design to build solutions 
+            that help your business thrive in the digital landscape.
+          </p>
+          <br>
+  
+          <div class="key">Key Features</div>
+          <ul class="features">
+            <li><span class="check">✓</span><div>Responsive website design and development</div></li>
+            <li><span class="check">✓</span><div>E-commerce platform development</div></li>
+            <li><span class="check">✓</span><div>Content management systems</div></li>
+            <li><span class="check">✓</span><div>Web application development</div></li>
+            <li><span class="check">✓</span><div>API development and integration</div></li>
+            <li><span class="check">✓</span><div>Web hosting and maintenance</div></li>
+          </ul>
+      </div>
+      <div class="convex-wrap">
+        <img class="convex-img" src="images/web_service.jpeg" alt="illustration">
+      </div>
         <hr style="color:red; margin-top:20px">
       </div>
+     
       <div class="service-body">
-       <h5>Ready-made project models :</h5> 
-        <br><br>
+      <span class="num_service">3</span>
+       <div class="text-col">
+          <h3>Graphic Design</h3>
+          <p class="lead">
+            Our graphic design services help you establish a strong visual identity and communicate your message effectively.
+            <br>  We create designs that capture your brand's essence and resonate with your target audience, 
+            from logos and marketing materials to user interfaces.
+          </p>
+          <br>
+  
+          <div class="key">Key Features</div>
+          <ul class="features">
+            <li><span class="check">✓</span><div>Logo design and brand identity</div></li>
+            <li><span class="check">✓</span><div>Marketing collateral design</div></li>
+            <li><span class="check">✓</span><div>User interface design</div></li>
+            <li><span class="check">✓</span><div>Social media graphics</div></li>
+            <li><span class="check">✓</span><div>Packaging design</div></li>
+            <li><span class="check">✓</span><div>Print design services</div></li>
+          </ul>
+      </div>
+      <div class="convex-wrap">
+        <img class="convex-img" src="images/design_service.jpeg" alt="illustration">
+      </div>
+        <hr style="color:red; margin-top:20px">
+      </div>
+     
+     
+      <div class="service-body">
+         <h3>How We Can Help You ?</h3> 
+         <p> We follow a structured approach to ensure successful project delivery. </b>
+         <br><br>
 
-        <div class="models">
-          <img src="images/project/profile1.jpg" alt="models">
-          <span>Profile template 1.1</span>
-          <hr style="color:red; margin:5px auto; width:70%">
-        </div>
-        
-        <div class="models">
-          <img src="images/project/profile2.jpg" alt="models">
-          <span>Profile template 1.2</span>
-          <hr style="color:red; margin:5px auto; width:70%">
-        </div>
-        
-        <div class="models">
-          <img src="images/project/profile3.jpg" alt="models">
-          <span>Profile template 1.3</span>
-          <hr style="color:red; margin:5px auto; width:70%">
-        </div>
-       
-        <div class="models">
-          <img src="images/project/programming1.jpg" alt="models">
-          <span>Language programming template 2.1</span>
-          <hr style="color:red; margin:5px auto; width:70%">
-        </div>
-        <div class="models">
-          <img src="images/project/programming2.jpg" alt="models">
-          <span>Language programming template 2.2</span>
-          <hr style="color:red; margin:5px auto; width:70%">
-        </div>
-        
-        <span><code><a href="#"></a></code></span>
-        
-        <hr style="color:red; margin-top:20px">
+         <div class="div-row">
+            <div class="div-col">
+              <span>01</span>
+              <h3>Discovery</h3>
+              <p>
+                We start by understanding your business, 
+              goals, and requirements through in-depth discussions.
+              </p>
+            </div>
+            <div class="div-col">
+              <span>02</span>
+              <h3>Planning</h3>
+              <p>
+                Our team creates a detailed project plan with timelines, milestones, 
+                and deliverables.
+              </p>
+            </div>
+            <div class="div-col">
+              <span>03</span>
+              <h3>Design</h3>
+              <p>
+                We design interfaces and user experiences that are intuitive, attractive, and effective.
+              </p>
+            </div>
+            <div class="div-col">
+              <span>04</span>
+              <h3>Development</h3>
+              <p>
+                Our developers build your solution using modern technologies and best practices.
+              </p>
+            </div>
+            <div class="div-col">
+              <span>05</span>
+              <h3>Testing</h3>
+              <p>
+                Rigorous quality assurance ensures your solution works flawlessly across all scenarios.
+              </p>
+            </div>
+            <div class="div-col">
+              <span>06</span>
+              <h3>Deployment</h3>
+              <p>
+                We help you launch your solution and provide training for your team.
+              </p>
+            </div>
+          </div>
       </div>
-      <div class="service-body">
-        
+    
+      <div class="service-body" id="last">
+         <h3>Technologies We Use</h3> 
+         <p> We leverage the latest technologies to deliver high-performance solutions. </b>
+         <br><br>
+
+         <div class="div-row">
+            <div class="div-col col-4">
+              <span>C#</span>,
+              <span>.Net Frameworks</span>,
+              <span>Microsoft Sql Server</span>
+            </div>
+            <div class="div-col col-4">
+              <span>Html</span>,
+              <span>Css</span>,
+              <span>Javascript</span>,
+              <span>ReactJs</span>
+              <span>NodeJs</span>,
+            </div>
+            <div class="div-col col-4">
+              <span>Php</span>,
+              <span>Express.js</span>,
+              <span>MySql</span>,
+              <span>MongoDB</span>,
+              <span>Firebase Firestore</span>,
+              <span>RESTful APIs</span>
+            </div>
+            <div class="div-col col-4">
+              <span>AWS</span>,
+              <span>Google Cloud Platform</span>,
+              <span>Firebase</span>
+            </div>
+            <div class="div-col col-4">
+              <span>Solidty</span>,
+              <span>Trufle</span>,
+              <span>Web3Js</span>,
+              <span>Blockchain</span>
+            </div>
+            <div class="div-col col-4">
+              <span>Dart</span>,
+              <span>Flutter</span>,
+              <span>Firebase</span>
+            </div>
+            <div class="div-col col-4">
+              <span>WordPress</span>,
+              <span>Figma</span>,
+              <span>Bootstrap</span>,
+              <span>Tailwend Css</span>
+            </div>
+          </div>
       </div>
       
+       <!-- hero footer  -->
+      <div class="hero-footer">
+         <h3>Ready to Start Your Project?</h3> 
+         <p> 
+           Contact us today to discuss your requirements and get a free consultation.
+         </b>
+         <br><br>
+          <a href="contact.html">Get in Touch</a>
+         <br><br>
+      </div>
+        <!--// hero footer //-->
+      
+       <!-- footer -->
+        <footer>
+        
+            <div class="footer-container">
+
+            <!-- Brand  -->
+            <div class="brand">
+                <h2>BSP <span>Soft</span></h2>
+                <p style=" color:#9ca3af;">Professional software development and design services for businesses of all sizes.</p>
+                <div class="social">
+                <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i><a>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+                <a href="#"><i class="ri-linkedin-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="packages.html">Packages</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                  <li><a href="#">Desktop Application Development</a></li>
+                  <li><a href="web-application.html">Web Application Development</a></li>
+                  <li><a href="#">Graphic Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="contact-us">
+                <h4 style=" color:#fff;">Contact Us</h4>
+                <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> +967 739021709</a></p>
+                <p><a href="wa:+967737537914"><i class="ri-phone-fill"></i> +967 737537914</a></p>
+                <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> programmerbsp3@gmail.com</a></p>
+                <p><a href="#"><i class="ri-map-pin-line"></i> BSP Company Headquarters</a></p>
+            </div>
+
+            
+            </div>
+            
+        </footer>
+        <!--// footer //-->
+
+       <!-- footer footer -->
+       <div class="footer-footer">
+          <ul>
+            <li><a href="#">Information about BSP Company |</a></li>
+            <li><a href="#">Documents and Reports |</a></li>
+            <li><a href="#">Our customers</a></li>
+          </ul>
+          <span>Copyright &copy; reserved for a Company <code>BSP</code> 2024.</span>
+        </div>
+        <!--// footer footer //-->
       
     </div>
   </div>
  <!--// services container //-->
 
+  
+ <!-- footer --> 
 
-
-
-   <script src="dist/main.js"></script>
 </body>
 </html>
-
-
-
-

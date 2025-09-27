@@ -19,6 +19,9 @@
       height: 90px;
       margin-left:10px;
     }
+    #logo{color:#fff;margin:15px;}
+   #logo  span{color:#3b82f6;}
+
     header nav{
       display: none;
     }
@@ -308,7 +311,7 @@
     border-radius: 50%;
     border:1px solid #fff;
     position: absolute;
-    top:-35px;
+    top:-50px;
     margin:0 auto;
   }
   .member-card #infoMember{
@@ -541,32 +544,7 @@
   }
 
      /* footer */
-     footer{
-      background-color: #122;
-      color: #fff;
-      min-height: 400px;
-      padding-top:20px;
-      text-align: left;
-     }
-     .footer-header{
-      margin:1em;
-     }
-    .footer-header ul{
-      list-style: none;
-      padding: 10px;
-     }
-     .footer-header ul li{
-      margin-bottom: 15px;
-      display: block;
-     }
-     .footer-header ul li a{
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.5em;
-     }
-     .footer-header ul li a:hover{
-      color:#ccc;
-     }
+
      .footer-footer{
       background-color: #ccc;
       padding: 10px;
@@ -593,6 +571,56 @@
       color: #012;
       margin: 15px 0;
      }
+
+     
+     
+  footer a{color:#9ca3af;text-decoration:none;}
+  footer a:hover{color:#fff;}
+
+  footer{
+    background:#111827;
+    padding:40px 20px;
+    min-height:400px;
+    width:100vw;
+    text-align: start;
+    
+  }
+  .footer-container{
+    display:grid;
+    align-items: start;
+    gap:30px;
+  }
+
+  
+  
+   .brand h2{color:#fff;margin:0;}
+   .brand h2 span{color:#3b82f6;}
+  footer .social{margin:15px 0;display:flex;gap:15px;}
+  footer .social a{font-size:20px;color:#9ca3af;}
+  footer .social a:hover{color:#3b82f6;}
+
+  footer .footer-col h4{
+    margin:0 0 15px;
+    color:#fff;
+    font-size:16px;
+  }
+  .footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  .footer-col ul li a{font-size:15px;}
+
+  footer .contact-us{border-top:1px solid #1f2937;padding-top:20px;font-size:15px;line-height: 30px;}
+  footer .contact-us a{color:#3b82f6;font-weight:500;}
+  footer .contact-us a:hover{text-decoration:underline;}
+
+  /* الشاشات الكبيرة */
+  @media(min-width:900px){
+    .footer-container{
+      grid-template-columns: 2fr 1fr 1fr;
+      align-items:start;
+    }
+    footer .contact-us{
+      grid-column:1/-1; /* يجعلها تمتد على العرض كله تحت الأعمدة */
+    }
+  }
 
 
 /* screen coumputer */
