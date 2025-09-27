@@ -431,6 +431,16 @@
     color: #fff;
   }
   
+  .project-list .btn-more{
+    text-decoration: none;
+    background-color: #f58913;
+    padding: 10px;
+    border-radius: 10px; 
+  }
+  .project-list .btn-more:hover{
+    background-color: #cc9c68;
+    color: #fff;
+  }
 
 
   /* contact us */

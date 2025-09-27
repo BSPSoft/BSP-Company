@@ -1,10 +1,3 @@
-   const menubtn=document.getElementById('menubtn');
-    const menuNav=document.getElementById('navMenu');
-    menubtn.addEventListener('click',function(){
-      menuNav.classList.toggle('hidden');
-    })
-
-
     // slider 
     const imageSliderProjects={
       'voting':{
@@ -15,9 +8,9 @@
         'index':0,
         'images':['School1.jpg','School2.jpg','School3.jpg','School4.jpg','School5.jpg']
       },
-      'profile':{
+      'BspNotes':{
         'index':0,
-        'images':['profile1.jpg','profile2.jpg','profile3.jpg']
+        'images':['bspNote1.jpg','bspNote2.jpg','bspNote3.jpg','bspNote4.jpg']
       }
     };
     const movSlide=(indexProject,state)=>{
@@ -73,31 +66,31 @@
          schoolSlider.setAttribute('src','images/project/'+imageSliderProjects.BspSchool.images[imageSliderProjects.BspSchool.index]);
         break;
 
-       // project profile 
+       // project notesSlider 
       case 3:
-      let profileSlider=document.getElementById('profileSlider');
-         const totalslidesP=imageSliderProjects.profile.images.length;
+      let notesSlider=document.getElementById('notesSlider');
+         const totalslidesN =imageSliderProjects.BspNotes.images.length;
          if(state==='next'  ){
-          imageSliderProjects.profile.index ++;
+          imageSliderProjects.BspNotes.index ++;
          }else{
-          imageSliderProjects.profile.index --;
+          imageSliderProjects.BspNotes.index --;
          }
          
          //console.log('index image frist', imageSliderProjects.voting.index);
-         if(imageSliderProjects.profile.index === totalslidesP){imageSliderProjects.profile.index=0};
-         if(imageSliderProjects.profile.index === -1){imageSliderProjects.profile.index= totalslidesP -1};
+         if(imageSliderProjects.BspNotes.index === totalslidesN){imageSliderProjects.BspNotes.index=0};
+         if(imageSliderProjects.BspNotes.index === -1){imageSliderProjects.BspNotes.index= totalslidesN -1};
        
         //  let indexP=imageSliderProjects.profile.index;
         //  console.log('index :'+ index, ' index image :'+imageSliderProjects.voting.index);
         //  console.log('total',totalslides);
-         if(imageSliderProjects.profile.index>=totalslidesP){
-           imageSliderProjects.voting.index =0;
-         }else if(imageSliderProjects.profile.index < 0 ){
-          imageSliderProjects.voting.index=totalslidesP -1;
+         if(imageSliderProjects.BspNotes.index>=totalslidesN){
+           imageSliderProjects.BspNotes.index =0;
+         }else if(imageSliderProjects.BspNotes.index < 0 ){
+          imageSliderProjects.BspNotes.index=totalslidesN -1;
          }else{
-          imageSliderProjects.voting.index=imageSliderProjects.profile.index;
+          imageSliderProjects.BspNotes.index=imageSliderProjects.BspNotes.index;
          }
-         profileSlider.setAttribute('src','images/project/'+imageSliderProjects.profile.images[imageSliderProjects.profile.index]);
+         notesSlider.setAttribute('src','images/project/'+imageSliderProjects.BspNotes.images[imageSliderProjects.BspNotes.index]);
 
        break;
      }

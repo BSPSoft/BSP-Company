@@ -21,7 +21,6 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact us</a>
         <a href="#"><i class="ri-translate-2"></i>ع</a>
-        <a href="#"><i class="ri-sun-line"></i></a>
      </nav>
      <div id="menubtn"><i class="ri-menu-line"></i></div>
      <div id="navMenu" class="hidden">
@@ -34,7 +33,6 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact us</a>
         <a href="#"><i class="ri-translate-2"></i>ع</a>
-        <a href="#"><i class="ri-sun-line"></i></a>
       </nav>
     </div>
      
@@ -71,7 +69,7 @@
                  Deliver high-quality solutions with clean code, 
                  ensuring optimal performance and excellent user experience. 
                  </span>
-                 <button>more</button>
+                 <a href="web-application.html">more</a>
               </div>
         </div>
         
@@ -85,7 +83,7 @@
                  leveraging Web3 technologies. 
                  Including integrating blockchain functionality into web platforms, ensuring security, transparency and innovation.
                  </span>
-                 <button>more</button>
+                 <a href="web-blockchain.html">more</a>
               </div>
         </div>
         
@@ -98,7 +96,7 @@
                  delivering high-performance and visually appealing apps for both iOS and Android operating systems.
                  This approach focuses on seamless functionality and intuitive user interface to enhance user experience.
                  </span>
-                 <button>more</button>
+                 <a href="flutter-app.html">more</a>
               </div>
         </div>
         
@@ -375,13 +373,13 @@
               <code>Crystal Reports for .NET Framework 4.0</code>,
               <code>SQl Server 2014</code>,
             </span><br><br>
-            <a href="#">Project link on <code>Github <i class="ri-github-fill" ></i></code></a>
+            <a href="contact.html">Get the System, <code>contact us <i class="ri-customer-service-2-line" ></i></code></a>
           </div>
         </div>
 
         <div class="project-card">
-          <h2>Profile website tamplate</h2>
-          <img src="images/project/profile1.jpg" id="profileSlider" alt="profile" width="80%">
+          <h2>BSP NOTES</h2>
+          <img src="images/project/bspNote1.jpg" id="notesSlider" alt="profile" width="50%" height="30%">
           
           <div class="btn-slider">
             <!-- onclick="movSlide(1)" (index project,state) -->
@@ -390,14 +388,16 @@
           </div>
           
           <div class="project-description">
-            <span>A website tamplate that can be used as a model to introduce a company, institution or personal use.<br>
+            <span>A simple web application for managing notes, developed using React with Vite for high performance and fast development..<br>
               It was created using many techniques such as : 
-              <code>React.js</code>,
+              <code>React+Vite</code>,
               <code>Node.js</code>
             </span><br><br>
-            <a href="#">Project link on <code>Github  <i class="ri-github-fill" ></i></code></a>
+            <a href="https://cosmic-chaja-08b924.netlify.app" target="_blank">Website link <code><i class="ri-earth-fill" ></i></code></a>
           </div>
         </div>
+
+        <a href="projects.html" class="btn-more">more</a>
       </div>
     </div>
     <!--// projects //-->
@@ -408,7 +408,7 @@
     
     <!-- About BSP company -->
     <div class="about">
-      <h1>Information about BSP Company</h1>
+      <h1>Information about BSP SOFT Company</h1>
       <img src="images/Logo2.png" alt="Home">
       <div class="about-description">
         <span>BSP SOFT is a software company, 
@@ -424,7 +424,7 @@
          <code>building phone applications</code> <br>
          And other works.
        </span><br><br><br>
-       <a href="#">Company email link  <i class="ri-mail-fill" ></i></a>
+       <a href="contact.html">Get in Touch</a>
       </div>
     </div>
     <!--// About BSP company //-->
@@ -476,8 +476,9 @@
             <!-- Contact Us -->
             <div class="contact-us">
                 <h4 style=" color:#fff;">Contact Us</h4>
+                <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> link contact us</a></p>
                 <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> +967 739021709</a></p>
-                <p><a href="wa:+967737537914"><i class="ri-phone-fill"></i> +967 737537914</a></p>
+                <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i> +967 737537914</a></p>
                 <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> programmerbsp3@gmail.com</a></p>
                 <p><a href="#"><i class="ri-map-pin-line"></i> BSP Company Headquarters</a></p>
             </div>
@@ -506,7 +507,13 @@
   </div>
   <!--// Container //-->
   
-  
+  <script>
+      const menubtn=document.getElementById('menubtn');
+      const menuNav=document.getElementById('navMenu');
+      menubtn.addEventListener('click',function(){
+        menuNav.classList.toggle('hidden');
+      });
+  </script>
   <script src="dist/main.js"></script>
 </body>
 </html>

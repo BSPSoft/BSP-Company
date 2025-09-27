@@ -91,7 +91,7 @@
 <body>
     <!-- header -->
    <header>
-     <img src="images/Logo2.png" alt="Home">
+     <h1 id="logo">BSP <span>Soft</span></h1>
      <nav>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -101,7 +101,6 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact us</a>
         <a href="#"><i class="ri-translate-2"></i>ع</a>
-        <a href="#"><i class="ri-sun-line"></i></a>
      </nav>
      <div id="menubtn"><i class="ri-menu-line"></i></div>
      <div id="navMenu" class="hidden">
@@ -114,7 +113,6 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact us</a>
         <a href="#"><i class="ri-translate-2"></i>ع</a>
-        <a href="#"><i class="ri-sun-line"></i></a>
       </nav>
     </div>
      
@@ -236,8 +234,9 @@
             <!-- Contact Us -->
             <div class="contact-us">
                 <h4 style=" color:#fff;">Contact Us</h4>
+                <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> link contact us</a></p>
                 <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> +967 739021709</a></p>
-                <p><a href="wa:+967737537914"><i class="ri-phone-fill"></i> +967 737537914</a></p>
+                <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i> +967 737537914</a></p>
                 <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> programmerbsp3@gmail.com</a></p>
                 <p><a href="#"><i class="ri-map-pin-line"></i> BSP Company Headquarters</a></p>
             </div>
@@ -267,7 +266,13 @@
 
 
 
-   <script src="dist/main.js"></script>
+   <script>
+      const menubtn=document.getElementById('menubtn');
+      const menuNav=document.getElementById('navMenu');
+      menubtn.addEventListener('click',function(){
+        menuNav.classList.toggle('hidden');
+      });
+   </script>
 </body>
 </html>
 

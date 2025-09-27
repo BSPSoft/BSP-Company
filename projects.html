@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dist/style.css">
-    <title>About Us</title>
+    <style>
+        .project-hero {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #ddd;
+            padding: 40px;
+        }
+    </style>
 </head>
 <body>
-     <!-- header -->
+      <!-- header -->
    <header>
      <h1 id="logo">BSP <span>Soft</span></h1>
      <nav>
@@ -38,31 +46,104 @@
   </header>
   <!--// header //-->
 
+    <div class="project-hero">
+        <h1>Our Projects</h1>
+        <br>
+        <p>Explore our portfolio of successful projects across various industries.</p>
+        <br><br>
+    </div> 
 
-  <div class="about">
-      <h1>Information about BSP SOFT Company</h1>
-      <img src="images/Logo2.png" alt="Home">
-      <div class="about-description">
-        <span>BSP SOFT is a software company, 
-          interested in the design and development of different systems,
-          characterized by expert software staff, 
-          and high efficiency in analyzing software projects.
-          <br><br>
-          Founded in 2024, this company is based on various projects and businesses to the present day
-          <br>
-          Its fields are based on: <br>
-         <code>building and structuring websites and web applications</code> , <br> 
-         <code>building and structuring desktop systems and accounting systems</code> , <br>
-         <code>building phone applications</code> <br>
-         And other works.
-       </span><br><br><br>
-        <a href="contact.html">Get in Touch</a>
+     <!-- projects -->
+    <div class="projects">
+      <div class="project-info">
+        These projects are characterized by effectiveness,
+        design and performance <br>
+        <code>
+          these are a summary of some of the projects that have been completed using modern technologies.
+        </code> .
+      </div>
+      <div class="project-list">
+
+        <div class="project-card">
+          <h2>BlockChain Voting System</h2>
+          <img src="images/project/voting1.jpg" id="votingSlider" alt="voting" width="80%">
+         
+          <div class="btn-slider">
+            <!-- onclick="movSlide(1)" (index project,state) -->
+            <button class="prev" onclick="movSlide(1,'prev')">&#10094;</button>
+            <button class="next" onclick="movSlide(1,'next')">&#10095;</button>
+          </div>
+           
+
+          <div class="project-description">
+            <span>An electronic voting system that relies on blockchain technology 
+              to encrypt the voting process in order to prevent tampering with it.
+              <br>
+              It was created using many techniques such as : 
+              <code>PHP</code>,
+              <code>JavaScript</code>,
+              <code>Node.js</code>,
+              <code>Solidty</code>,
+              <code>Truffle</code>
+              and Others.            
+            </span><br><br>
+            <a href="#">Project link on <code>Github <i class="ri-github-fill" ></i></code></a>
+          </div>
+        </div>
+
+         <div class="project-card">
+          <h2>BSP School System</h2>
+          <img src="images/project/School1.jpg" id="schoolSlider" alt="School" width="80%">
+         
+          <div class="btn-slider">
+            <!-- onclick="movSlide(1)" (index project,state) -->
+            <button class="prev" onclick="movSlide(2,'prev')">&#10094;</button>
+            <button class="next" onclick="movSlide(2,'next')">&#10095;</button>
+          </div>
+           
+
+          <div class="project-description">
+            <span>It is an integrated system for school administration, encompassing school tasks related to student and teacher management,
+               including organizing grades, generating reports, and addressing educational needs..
+              <br>
+              It was created using many techniques such as : 
+              <code>C#</code>,
+              <code>.NET Framework 4.7.2</code>,
+              <code>Crystal Reports for .NET Framework 4.0</code>,
+              <code>SQl Server 2014</code>,
+            </span><br><br>
+            <a href="contact.html">Get the System, <code>contact us <i class="ri-customer-service-2-line" ></i></code></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h2>BSP NOTES</h2>
+          <img src="images/project/bspNote1.jpg" id="notesSlider" alt="profile" width="50%" height="30%">
+          
+          <div class="btn-slider">
+            <!-- onclick="movSlide(1)" (index project,state) -->
+            <button class="prev" onclick="movSlide(3,'prev')">&#10094;</button>
+            <button class="next" onclick="movSlide(3,'next')">&#10095;</button>
+          </div>
+          
+          <div class="project-description">
+            <span>A simple web application for managing notes, developed using React with Vite for high performance and fast development..<br>
+              It was created using many techniques such as : 
+              <code>React+Vite</code>,
+              <code>Node.js</code>
+            </span><br><br>
+            <a href="https://cosmic-chaja-08b924.netlify.app" target="_blank">Website link <code><i class="ri-earth-fill" ></i></code></a>
+          </div>
+        </div>
+
       </div>
     </div>
-    <!--// About BSP company //-->
+    <!--// projects //-->
+  
 
 
-   <!-- footer -->
+
+  <!-- footer -->
         <footer>
         
             <div class="footer-container">
@@ -134,6 +215,8 @@
         menubtn.addEventListener('click',function(){
           menuNav.classList.toggle('hidden');
         });
-   </script>
+    </script>
+    <script src="dist/main.js"></script>
+
 </body>
 </html>
