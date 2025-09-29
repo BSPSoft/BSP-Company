@@ -246,7 +246,7 @@
        position: absolute;
        top:0;
        left:0;
-       border:1px solid orange;
+       border:1px solid rgb(148, 104, 23);
        border-bottom-right-radius:10px;
        border-top-left-radius:10px;
      }
@@ -255,7 +255,7 @@
        bottom: 0;
        right: 0;
        text-decoration: none;
-       background-color: orange;
+       background-color: rgb(148, 104, 23);
        color:#fff;
        padding: 5px;
        border-bottom-right-radius:10px;
@@ -266,7 +266,7 @@
        margin-bottom: 1.5em;
      }
      .track-card code{
-       color:orange;
+       color:rgb(148, 104, 23);
      }
   
   .tracks-other{
@@ -280,12 +280,12 @@
     color:blue;
     font-size: 1em;
     font-weight: 500;
-    border-bottom: 1px solid orange;
+    border-bottom: 1px solid rgb(148, 104, 23);
     margin:10px;
   }
   .tracks-other a span{
     font-size: 1.3em;
-    color:orange;
+    color:rgb(148, 104, 23);
   }
 
   /* Membars */
@@ -318,6 +318,7 @@
     position: relative;
     min-height: 300px;
     max-width: 80%;
+
   }
 
   .member-card img{
@@ -329,19 +330,25 @@
   }
   .member-card #infoMember{
     margin-top:30px;
-    font-size: 0.8em;
-    font-weight: 300;
-    text-align: left;
+    font-size: 0.1em;
+    font-weight: normal;
+    text-align: right;
     padding: 10px;
   }
   .member-card #infoMember span{
-    font-size: 1em;
     font-weight: 600;
     color:black;
+    text-align: right;
+  }
+  .member-card #infoMember #name{
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-right: 5px;
+    color: #5c0707;
   }
   .member-card #infoMember  div{
     width:90%;
-    margin-left:1em;
+    margin-right:1em;
   }
   .member-card #infoMember code{
     color:#111;
