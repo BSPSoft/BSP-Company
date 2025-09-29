@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Application Packages</title>
+    <style>
+        body{margin:0;color:#111827;}
+
+        .package-hero{
+            text-align: center;
+            padding-bottom: 40px;
+            background-color: #ddd;
+            padding: 40px;
+        }
+        .package-hero h1{margin-bottom:6px;}
+        .package-hero p.sub{color:#6b7280;margin:0 0 30px;}
+
+        .container{max-width:100%;margin:0 auto;padding:40px 20px;text-align:center;}
+
+        /* tabs */
+        .tabs{display:flex;justify-content:center;gap:12px;margin-bottom:32px;flex-wrap:wrap;}
+        .tabs button{
+            padding:10px 18px;
+            border:1px solid #3b82f6;
+            background:#fff;
+            color:#3b82f6;
+            font-weight:600;
+            border-radius:6px;
+            cursor:pointer;
+            transition:0.2s;
+        }
+        .tabs button.active{background:#3b82f6;color:#fff;}
+
+        /* packages grid */
+        .packages{display:grid;gap:20px;}
+        .package-title .subtitle{color:#555;margin-bottom:30px;}
+        .card{
+            background:#fff;
+            border:1px solid #d1d3d6;
+            border-radius:10px;
+            padding:24px;
+            text-align:left;
+            box-shadow:1px 4px 12px rgba(39, 39, 39, 0.04);
+            position: relative;
+            height: 480px;
+        }
+        .card.popular{border:2px solid #3b82f6;position:relative;}
+        .card.popular::after{
+            content:"POPULAR";
+            position:absolute;top:12px;right:12px;
+            background:#3b82f6;color:#fff;
+            font-size:11px;font-weight:700;
+            padding:3px 8px;border-radius:10px;
+        }
+        .price{font-size:28px;font-weight:700;margin:8px 0 16px;}
+        .features{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+        .features li::before{
+            content:"✔ ";
+            /* color:#3b82f6; */
+            font-weight:700;
+            color: white;                /* لون الصح */
+            background: #007bff;         /* الأزرق */
+            border-radius: 50%;          /* تخليها دائرة */
+            padding: 4px;                /* عشان يكون داخل دائرة */
+            font-size: 15px;
+            margin-right: 8px;
+        }
+        .features li.disabled{color:#9ca3af;text-decoration:line-through;}
+        .card .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 18px;
+            background:#111827;color:#fff;
+            font-weight:600;
+            border:none;border-radius:6px;
+            cursor:pointer;
+            width:90%;
+            text-align:center;
+            position: absolute;
+            bottom:17px;
+        }
+        .card .btn:hover{background:#374151;}
+
+        .card.popular .btn{background:#3b82f6;}
+        .card.popular .btn:hover{background:#2563eb;}
+        /* custom solution box */
+        .custom{
+            background:#fff;
+            border-radius:10px;
+            padding:24px;
+            margin:70px auto 0;
+            display:grid;
+            gap:20px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.04);
+            max-width: 70%;
+        }
+        .custom h1{margin:0;font-weight: 700;}
+        .custom .left{text-align:left;}
+        .custom .right{
+            background:#f9fbff;
+            border-left:4px solid #3b82f6;
+            padding:25px 20px;
+            text-align:left;
+            border-radius:8px;
+        }
+        .custom ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+        .custom ul li::before{content:"✔ ";color:#3b82f6;}
+
+        .custom .left #btn-custom{
+            text-decoration: none;
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 18px;
+            background:#111827;color:#fff;
+            font-weight:600;
+            border:none;border-radius:6px;
+            cursor:pointer;
+            text-align:center;
+        }
+
+        /* layout responsive */
+        @media(min-width:800px){
+            .packages{grid-template-columns:repeat(3,1fr);}
+            .custom{grid-template-columns:2fr 1fr;align-items:center;}
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            }
+
+            p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+            }
+
+            .accordion {
+                max-width: 90%;
+                margin: 70px auto;
+            }
+
+            .accordion-item {
+             border-bottom: 1px solid #ddd;
+            }
+
+            .accordion-header {
+            padding: 15px 10px;
+            cursor: pointer;
+            background: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            }
+
+            .accordion-header:hover {
+            background: #f9f9f9;
+            }
+
+            .accordion-header::after {
+            content: "▼";
+            position: absolute;
+            right: 15px;
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s;
+            }
+
+            .accordion-header.active::after {
+            transform: rotate(180deg); /* السهم ينقلب لأعلى */
+            }
+
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                padding: 0 30px;
+                color: #444;
+                line-height: 1.5;
+            }
+
+            .accordion-content p {
+            margin: 12px 0;
+            }
+    </style>
+</head>
+<body>
+
+     <!-- header -->
+   <header>
+     <h1 id="logo">BSP <span>Soft</span></h1>
+     <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#members">Membars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact us</a>
+        <a href="#"><i class="ri-translate-2"></i>ع</a>
+     </nav>
+     <div id="menubtn"><i class="ri-menu-line"></i></div>
+     <div id="navMenu" class="hidden">
+       <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="packages.html">Packages</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#members">Membars</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
+            <a href="#"><i class="ri-translate-2"></i>ع</a>
+      </nav>
+    </div>
+     
+  </header>
+  <!--// header //-->
+
+   
+  <!-- package-hero -->
+  <div class="package-hero">
+        <h1>Application Packages</h1>
+        <br>
+        <p class="sub">Choose the perfect package to meet your business needs and budget</p>
+        <br><br>
+    </div>
+    
+    <!-- container -->
+  <div class="container">
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="desktop">Desktop</button>
+        <button class="tab-btn" data-tab="web">Web</button>
+        <button class="tab-btn" data-tab="mobile">Mobile</button>
+    </div>
+
+    <!-- Desktop Packages -->
+    <div class="tab-content" id="desktop">
+        <div class="package-title">
+            <h1>Desktop Application Packages</h1>
+            <br>
+            <p class="subtitle">Powerful desktop solutions designed to streamline your business operations</p>
+            <br><br>
+        </div>
+        <div class="packages">
+            <div class="card">
+                <h3>Basic Desktop</h3>
+                <p>Perfect for small businesses with simple needs</p>
+                <div class="price">$1,999</div>
+                <ul class="features">
+                <li>Custom UI Design</li>
+                <li>Basic Functionality</li>
+                <li>User Authentication</li>
+                <li>Basic Reporting</li>
+                <li>Email Support</li>
+                <li>Database Integration</li>
+                <li class="disabled">Advanced Reporting</li>
+                <li class="disabled">API Integration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card popular">
+                <h3>Professional Desktop</h3>
+                <p>Comprehensive solution for growing businesses</p>
+                <div class="price">$3,999</div>
+                <ul class="features">
+                <li>Custom UI Design</li>
+                <li>Advanced Functionality</li>
+                <li>User Authentication</li>
+                <li>Advanced Reporting</li>
+                <li>Priority Support</li>
+                <li>Database Integration</li>
+                <li>API Integration</li>
+                <li class="disabled">Data Migration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Desktop</h3>
+                <p>Full-featured solution for large organizations</p>
+                <div class="price">$6,999+</div>
+                <ul class="features">
+                <li>Custom UI Design</li>
+                <li>Advanced Functionality</li>
+                <li>User Authentication</li>
+                <li>Advanced Reporting</li>
+                <li>24/7 Support</li>
+                <li>Database Integration</li>
+                <li>API Integration</li>
+                <li>Data Migration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Web Packages -->
+    <div class="tab-content" id="web" style="display:none">
+        <div class="package-title">
+            <h1>Web Development Packages</h1>
+            <br>
+            <p class="subtitle">Professional websites and web applications for your online presence</p>
+            <br><br>
+        </div>
+        <div class="packages">
+            <div class="card">
+                <h3>Basic Web</h3>
+                <p>Landing page or simple website</p>
+                <div class="price">$999</div>
+                <ul class="features">
+                <li>Responsive Design</li>
+                <li>Up to 5 Pages</li>
+                <li>Contact Form</li>
+                <li>Basic SEO</li>
+                <li>Social Media Integration</li>
+                <li class="disabled">CMS Integration</li>
+                <li class="disabled">E-commerce Features</li>
+                <li class="disabled">Custom Animations</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card popular">
+                <h3>Professional Web</h3>
+                <p>For businesses needing advanced features</p>
+                <div class="price">$2,499</div>
+                <ul class="features">
+                <li>Custom Responsive Design</li>
+                <li>Advanced CMS</li>
+                <li>E-commerce Support</li>
+                <li>SEO Optimization</li>
+                <li>API Integration</li>
+                <li class="disabled">Cloud Integration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Web</h3>
+                <p>Complex portals and scalable systems</p>
+                <div class="price">$4,999+</div>
+                <ul class="features">
+                <li>All Professional Features</li>
+                <li>Scalable Architecture</li>
+                <li>24/7 Support</li>
+                <li>Cloud Integration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Packages -->
+    <div class="tab-content" id="mobile" style="display:none">
+        <div class="package-title">
+            <h1>Mobile Application Packages</h1>
+            <br>
+            <p class="subtitle">Powerful mobile app solutions designed to streamline your business operations</p>
+            <br><br>
+        </div>
+        <div class="packages">
+            <div class="card">
+                <h3>Basic Mobile</h3>
+                <p>Simple mobile app for small projects</p>
+                <div class="price">$1,499</div>
+                <ul class="features">
+                <li>Cross-platform (iOS/Android)</li>
+                <li>Basic UI</li>
+                <li>Email Support</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card popular">
+                <h3>Professional Mobile</h3>
+                <p>Advanced mobile app with backend</p>
+                <div class="price">$3,499</div>
+                <ul class="features">
+                <li>Custom UI/UX</li>
+                <li>API Integration</li>
+                <li>Push Notifications</li>
+                <li>User Authentication</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="card">
+                <h3>Enterprise Mobile</h3>
+                <p>Large scale mobile solutions</p>
+                <div class="price">$7,999+</div>
+                <ul class="features">
+                <li>All Professional Features</li>
+                <li>24/7 Support</li>
+                <li>Scalable Cloud Backend</li>
+                <li>Data Migration</li>
+                </ul>
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Solution -->
+    <div class="custom">
+        <div class="left">
+            <h1>Need a Custom Solution?</h1>
+            <p>Don't see a package that fits your specific requirements? We offer custom solutions tailored to your unique business needs.</p>
+            <a href="contact.html#contact-form" id="btn-custom" style="background:#3b82f6">Request a Custom Quote</a>
+        </div>
+        <div class="right">
+            <h4>Custom Solutions Include</h4>
+            <ul>
+                <li>Tailored functionality to match exact requirements</li>
+                <li>Integration with existing systems and workflows</li>
+                <li>Scalable architecture for future growth</li>
+                <li>Flexible budgeting options</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- accordion -->
+       
+    <div class="accordion">
+         <h2>Frequently Asked Questions</h2>
+         <p class="subtitle">Find answers to common questions about our packages and services</p>
+
+        <div class="accordion-item">
+        <div class="accordion-header">Do you offer customized packages?</div>
+        <div class="accordion-content">
+           <br>
+           <p>
+                Yes, we understand that every business has unique requirements.
+                While we offer standard packages to provide a starting point, 
+                we're happy to customize a solution that perfectly fits your needs and budget. 
+                Please contact us to discuss your specific requirements.
+            </p>
+            <br>
+        </div>
+        </div>
+
+        <div class="accordion-item">
+        <div class="accordion-header">What is the typical timeline for project completion?</div>
+        <div class="accordion-content">
+            <br>
+            <p>
+                Project timelines vary depending on the scope and complexity. Basic websites typically take 2-4 weeks, 
+                while more complex web applications or desktop software may take 8-12 weeks or longer.
+                During our initial consultation, we'll provide you with a detailed timeline based on your specific project requirements.
+            </p>
+            <br>
+        </div>
+        </div>
+
+        <div class="accordion-item">
+        <div class="accordion-header">Do you provide ongoing support after the project is completed?</div>
+        <div class="accordion-content">
+            <br>
+            <p>
+                Yes, we offer various support and maintenance packages to ensure your software continues to run smoothly.
+                Our support includes bug fixes, security updates, and technical assistance. 
+                We can discuss the appropriate support option for your needs during our consultation.
+            </p>
+            <br>
+        </div>
+        </div>
+
+        <div class="accordion-item">
+        <div class="accordion-header">What is your payment structure?</div>
+        <div class="accordion-content">
+            <br>
+            <p>
+                We typically require a 50% deposit to begin work, with the remaining 50% due upon project completion. 
+                For larger projects, we may establish a milestone-based payment schedule. 
+                We accept bank transfers and major credit cards.
+            </p>
+            <br>
+        </div>
+        </div>
+
+        <div class="accordion-item">
+        <div class="accordion-header">Can you help migrate data from our existing systems?</div>
+        <div class="accordion-content">
+            <br>
+            <p>
+                Yes, we offer data migration services to help you transition from your existing systems to your new solution. 
+                Our team will work with you to ensure a smooth migration process with minimal disruption to your operations.
+            </p>
+            <br>
+        </div>
+        </div>
+    </div>
+
+    
+    </div>
+ <!-- // container end  -->
+
+ <!-- footer -->
+        <footer>
+        
+            <div class="footer-container">
+
+            <!-- Brand  -->
+            <div class="brand">
+                <h2>BSP <span>Soft</span></h2>
+                <p style=" color:#9ca3af;">Professional software development and design services for businesses of all sizes.</p>
+                <div class="social">
+                <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i><a>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+                <a href="#"><i class="ri-linkedin-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="packages.html">Packages</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                  <li><a href="#">Desktop Application Development</a></li>
+                  <li><a href="web-application.html">Web Application Development</a></li>
+                  <li><a href="#">Graphic Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="contact-us">
+                <h4 style=" color:#fff;">Contact Us</h4>
+                <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> link contact us</a></p>
+                <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> +967 739021709</a></p>
+                <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i> +967 737537914</a></p>
+                <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> programmerbsp3@gmail.com</a></p>
+                <p><a href="#"><i class="ri-map-pin-line"></i> BSP Company Headquarters</a></p>
+            </div>
+
+            
+            </div>
+            
+        </footer>
+        <!--// footer //-->
+
+       <!-- footer footer -->
+       <div class="footer-footer">
+          <ul>
+            <li><a href="#">Information about BSP Company |</a></li>
+            <li><a href="#">Documents and Reports |</a></li>
+            <li><a href="#">Our customers</a></li>
+          </ul>
+          <span>Copyright &copy; reserved for a Company <code>BSP</code> 2024.</span>
+        </div>
+        <!--// footer footer //-->
+
+    <script>
+        const menubtn=document.getElementById('menubtn');
+        const menuNav=document.getElementById('navMenu');
+        menubtn.addEventListener('click',function(){
+          menuNav.classList.toggle('hidden');
+        });
+    </script>
+
+    <script>
+        const tabs = document.querySelectorAll(".tab-btn");
+        const contents = document.querySelectorAll(".tab-content");
+        tabs.forEach(btn=>{
+            btn.addEventListener("click",()=>{
+            tabs.forEach(b=>b.classList.remove("active"));
+            btn.classList.add("active");
+            contents.forEach(c=>c.style.display="none");
+            document.getElementById(btn.dataset.tab).style.display="block";
+            });
+        });
+        
+        const headers = document.querySelectorAll(".accordion-header");
+
+            headers.forEach(header => {
+            header.addEventListener("click", () => {
+                header.classList.toggle("active");
+                const content = header.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+            });
+    </script>
+
+</body>
+</html>
