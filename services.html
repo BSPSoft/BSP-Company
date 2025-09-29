@@ -148,20 +148,7 @@
     max-height: 90%;
     border-radius: 26px;
   }
-  /*
-    .service-content .service-body p{
-      color:#666;
-      font-size: 1em;
-      font-weight: 500;
-    }
-    .service-content .service-body ul li{
-      margin:10px 20px;
-      color:#9b5b59;
-      font-size: 1.2em;
-      font-weight: 500;
-    }
-  */
-  
+ 
  .div-row{
     display: flex;
     
@@ -176,7 +163,6 @@
   border-radius: 20px;
   text-align: left;
   box-shadow: 5px 3px 0px #ddd;
-  /* flex: 1 1 100%; */
 }
 
 .div-col span{
@@ -190,10 +176,8 @@
 }
 
 
+/* phone screen */
 @media (max-width: 768px) {
-   /* .service-container img{
-
-    } */
   .div-row{
     flex-direction:column;
     flex-wrap: wrap;
@@ -205,20 +189,13 @@
   }
 }
 
-   /*
-    .service-body .models {
-      display:flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap:10px;
-      padding: 10px;
-      margin-bottom:15px;
-    }
-    .models img{
-      max-width: 90%;
-    }
-  */
+/* labtop screen */
+@media (min-width: 992px) {
+  .service-container .img-hero {
+    max-height: 500px; /* تخفيف الارتفاع */
+    object-fit: cover; /* يقص الزايد ويحافظ على ملء العرض */
+  }
+}
 
    .hero-footer{
       background-color:#071b90bb;
@@ -265,25 +242,25 @@
      <h1 id="logo">BSP <span>Soft</span></h1>
      <nav>
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
+        <a href="services.html" id="active-page">Services</a>
         <a href="packages.html">Packages</a>
         <a href="projects.html">Projects</a>
         <a href="index.html#members">Membars</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact us</a>
-        <a href="#"><i class="ri-translate-2"></i>ع</a>
+        <a href="ar/services.html"><i class="ri-translate-2"></i>ع</a>
      </nav>
      <div id="menubtn"><i class="ri-menu-line"></i></div>
      <div id="navMenu" class="hidden">
        <nav>
             <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
+            <a href="services.html" id="active-page">Services</a>
             <a href="packages.html">Packages</a>
             <a href="projects.html">Projects</a>
             <a href="index.html#members">Membars</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact us</a>
-            <a href="#"><i class="ri-translate-2"></i>ع</a>
+            <a href="ar/services.html"><i class="ri-translate-2"></i>ع</a>
       </nav>
     </div>
      
@@ -293,7 +270,7 @@
   
  <!-- services container -->
   <div class="service-container">
-    <img src="images/services1.jpeg" alt="web development">
+    <img class="img-hero" src="images/services1.jpeg" alt="web development">
    
     <div class="service-content">
       <div class="service-title">
@@ -518,7 +495,7 @@
                 <h2>BSP <span>Soft</span></h2>
                 <p style=" color:#9ca3af;">Professional software development and design services for businesses of all sizes.</p>
                 <div class="social">
-                <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i><a>
+                <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i></a>
                 <a href="#"><i class="ri-facebook-fill"></i></a>
                 <a href="#"><i class="ri-linkedin-fill"></i></a>
                 <a href="#"><i class="ri-instagram-fill"></i></a>

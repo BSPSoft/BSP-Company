@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://use.typekit.net/gmi8hjy.css">
+    <link rel="stylesheet" href="../dist/style-ar.css">
+    <title>باقاتنا</title>
+    <style>
+        body{margin:0;color:#111827;}
+
+        .package-hero{
+            text-align: center;
+            padding-bottom: 40px;
+            background-color: #ddd;
+            padding: 40px;
+        }
+        .package-hero h1{margin-bottom:6px;}
+        .package-hero p.sub{color:#6b7280;margin:0 0 30px;}
+
+        .container{max-width:100%;margin:0 auto;padding:40px 20px;text-align:center;}
+
+        /* tabs */
+        .tabs{display:flex;justify-content:center;gap:12px;margin-bottom:32px;flex-wrap:wrap;}
+        .tabs button{
+            padding:10px 18px;
+            border:1px solid #3b82f6;
+            background:#fff;
+            color:#3b82f6;
+            font-weight:600;
+            border-radius:6px;
+            cursor:pointer;
+            transition:0.2s;
+        }
+        .tabs button.active{background:#3b82f6;color:#fff;}
+
+        /* packages grid */
+        .packages{display:grid;gap:20px;}
+        .package-title .subtitle{color:#555;margin-bottom:30px;}
+        .card{
+            background:#fff;
+            border:1px solid #d1d3d6;
+            border-radius:10px;
+            padding:24px;
+            text-align:right;
+            box-shadow:1px 4px 12px rgba(39, 39, 39, 0.04);
+            position: relative;
+            height: 500px;
+        }
+        .card.popular{border:2px solid #3b82f6;position:relative;}
+        .card.popular::after{
+            content:"POPULAR";
+            position:absolute;top:12px;left:12px;
+            background:#3b82f6;color:#fff;
+            font-size:11px;font-weight:700;
+            padding:3px 8px;border-radius:10px;
+        }
+        .price{font-size:28px;font-weight:700;margin:8px 0 16px;}
+        .features{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+        .features li::before{
+            content:"✔ ";
+            font-weight:700;
+            color: white;                /* لون الصح */
+            background: #007bff;         /* الأزرق */
+            border-radius: 50%;          /* تخليها دائرة */
+            padding: 4px;                /* عشان يكون داخل دائرة */
+            font-size: 15px;
+            margin-left: 8px;
+            text-align: center;
+        }
+        .features li.disabled{color:#9ca3af;text-decoration:line-through;}
+        .card .btn{
+            text-decoration: none;
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 18px;
+            background:#111827;color:#fff;
+            font-weight:600;
+            border:none;border-radius:6px;
+            cursor:pointer;
+            width:90%;
+            text-align:center;
+            position: absolute;
+            bottom:17px;
+        }
+        .card .btn:hover{background:#374151;}
+
+        .card.popular .btn{background:#3b82f6;}
+        .card.popular .btn:hover{background:#2563eb;}
+        /* custom solution box */
+        .custom{
+            background:#fff;
+            border-radius:10px;
+            padding:24px;
+            margin:70px auto 0;
+            display:grid;
+            gap:20px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.04);
+            max-width: 70%;
+        }
+        .custom h1{margin:0;font-weight: 700;}
+        .custom .left{text-align:left;}
+        .custom .right{
+            background:#f9fbff;
+            border-left:4px solid #3b82f6;
+            padding:25px 20px;
+            text-align:left;
+            border-radius:8px;
+        }
+        .custom ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+        .custom ul li::before{content:"✔ ";color:#3b82f6;}
+
+        .custom .left #btn-custom{
+            text-decoration: none;
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 18px;
+            background:#111827;color:#fff;
+            font-weight:600;
+            border:none;border-radius:6px;
+            cursor:pointer;
+            text-align:center;
+        }
+
+        /* layout responsive */
+        @media(min-width:800px){
+            .packages{grid-template-columns:repeat(3,1fr);}
+            .custom{grid-template-columns:2fr 1fr;align-items:center;}
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            }
+
+            p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+            }
+
+            .accordion {
+                max-width: 90%;
+                margin: 70px auto;
+            }
+
+            .accordion-item {
+             border-bottom: 1px solid #ddd;
+            }
+
+            .accordion-header {
+            padding: 15px 10px;
+            cursor: pointer;
+            background: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            }
+
+            .accordion-header:hover {
+            background: #f9f9f9;
+            }
+
+            .accordion-header::after {
+            content: "▼";
+            position: absolute;
+            right: 15px;
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s;
+            }
+
+            .accordion-header.active::after {
+            transform: rotate(180deg); /* السهم ينقلب لأعلى */
+            }
+
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                padding: 0 30px;
+                color: #444;
+                line-height: 1.5;
+            }
+
+            .accordion-content p {
+            margin: 12px 0;
+            }
+    </style>
+</head>
+<body>
+
+     <!-- الهيدر -->
+   <header>
+     <h1 id="logo">BSP <span>Soft</span></h1>
+     <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html">خدماتنا</a>
+        <a href="packages.html" id="active-page">الباقات</a>
+        <a href="projects.html">المشاريع</a>
+        <a href="index.html#members">الفريق</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="../packages.html"><i class="ri-translate-2"></i>En</a>
+     </nav>
+     <div id="menubtn"><i class="ri-menu-line"></i></div>
+     <div id="navMenu" class="hidden">
+       <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="services.html">خدماتنا</a>
+            <a href="packages.html" id="active-page">الباقات</a>
+            <a href="projects.html">المشاريع</a>
+            <a href="index.html#members">الفريق</a>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">تواصل معنا</a>
+            <a href="../packages.html"><i class="ri-translate-2"></i>En</a>
+      </nav>
+    </div>
+  </header>
+  <!--// الهيدر //-->
+
+   
+<!-- package-hero -->
+<div class="package-hero">
+  <h1>باقات التطبيقات</h1>
+  <br>
+  <p class="sub">اختر الباقة المثالية التي تناسب احتياجات عملك وميزانيتك</p>
+  <br><br>
+</div>
+  
+  <!-- container -->
+<div class="container">
+  
+  <!-- Tabs -->
+  <div class="tabs">
+      <button class="tab-btn active" data-tab="desktop">سطح المكتب</button>
+      <button class="tab-btn" data-tab="web">الويب</button>
+      <button class="tab-btn" data-tab="mobile">الموبايل</button>
+  </div>
+
+  <!-- Desktop Packages -->
+  <div class="tab-content" id="desktop">
+      <div class="package-title">
+          <h1>باقات تطبيقات سطح المكتب</h1>
+          <br>
+          <p class="subtitle">حلول مكتبية قوية لتبسيط وإدارة أعمالك بكفاءة</p>
+          <br><br>
+      </div>
+      <div class="packages">
+          <div class="card">
+              <h3>سطح المكتب - أساسية</h3>
+              <p>مثالية للشركات الصغيرة ذات الاحتياجات البسيطة</p>
+              <div class="price">$1,999</div>
+              <ul class="features">
+              <li>تصميم واجهة مخصص</li>
+              <li>وظائف أساسية</li>
+              <li>تسجيل دخول المستخدمين</li>
+              <li>تقارير أساسية</li>
+              <li>دعم عبر البريد الإلكتروني</li>
+              <li>ربط قاعدة بيانات</li>
+              <li class="disabled">تقارير متقدمة</li>
+              <li class="disabled">تكامل مع واجهات API</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card popular">
+              <h3>سطح المكتب - احترافية</h3>
+              <p>حل متكامل للشركات النامية</p>
+              <div class="price">$3,999</div>
+              <ul class="features">
+              <li>تصميم واجهة مخصص</li>
+              <li>وظائف متقدمة</li>
+              <li>تسجيل دخول المستخدمين</li>
+              <li>تقارير متقدمة</li>
+              <li>دعم أولوية</li>
+              <li>ربط قاعدة بيانات</li>
+              <li>تكامل مع واجهات API</li>
+              <li class="disabled">ترحيل البيانات</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card">
+              <h3>سطح المكتب - مؤسسات</h3>
+              <p>حل متكامل وكامل المزايا للشركات الكبيرة</p>
+              <div class="price">$6,999+</div>
+              <ul class="features">
+              <li>تصميم واجهة مخصص</li>
+              <li>وظائف متقدمة</li>
+              <li>تسجيل دخول المستخدمين</li>
+              <li>تقارير متقدمة</li>
+              <li>دعم على مدار الساعة</li>
+              <li>ربط قاعدة بيانات</li>
+              <li>تكامل مع واجهات API</li>
+              <li>ترحيل البيانات</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Web Packages -->
+  <div class="tab-content" id="web" style="display:none">
+      <div class="package-title">
+          <h1>باقات تطوير الويب</h1>
+          <br>
+          <p class="subtitle">مواقع وتطبيقات ويب احترافية لتعزيز حضورك على الإنترنت</p>
+          <br><br>
+      </div>
+      <div class="packages">
+          <div class="card">
+              <h3>الويب - أساسية</h3>
+              <p>صفحة هبوط أو موقع بسيط</p>
+              <div class="price">$999</div>
+              <ul class="features">
+              <li>تصميم متجاوب</li>
+              <li>حتى 5 صفحات</li>
+              <li>نموذج تواصل</li>
+              <li>تهيئة أساسية لمحركات البحث (SEO)</li>
+              <li>ربط وسائل التواصل الاجتماعي</li>
+              <li class="disabled">نظام إدارة محتوى (CMS)</li>
+              <li class="disabled">ميزات التجارة الإلكترونية</li>
+              <li class="disabled">حركات ورسوميات مخصصة</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card popular">
+              <h3>الويب - احترافية</h3>
+              <p>للشركات التي تحتاج إلى مزايا متقدمة</p>
+              <div class="price">$2,499</div>
+              <ul class="features">
+              <li>تصميم متجاوب مخصص</li>
+              <li>نظام إدارة محتوى متقدم</li>
+              <li>دعم التجارة الإلكترونية</li>
+              <li>تحسين SEO</li>
+              <li>تكامل مع واجهات API</li>
+              <li class="disabled">تكامل سحابي</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card">
+              <h3>الويب - مؤسسات</h3>
+              <p>بوابات وأنظمة معقدة قابلة للتوسع</p>
+              <div class="price">$4,999+</div>
+              <ul class="features">
+              <li>كل المزايا الاحترافية</li>
+              <li>بنية قابلة للتوسع</li>
+              <li>دعم على مدار الساعة</li>
+              <li>تكامل سحابي</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Mobile Packages -->
+  <div class="tab-content" id="mobile" style="display:none">
+      <div class="package-title">
+          <h1>باقات تطبيقات الموبايل</h1>
+          <br>
+          <p class="subtitle">حلول تطبيقات موبايل قوية لتبسيط عمليات أعمالك</p>
+          <br><br>
+      </div>
+      <div class="packages">
+          <div class="card">
+              <h3>الموبايل - أساسية</h3>
+              <p>تطبيق بسيط للمشاريع الصغيرة</p>
+              <div class="price">$1,499</div>
+              <ul class="features">
+              <li>يدعم iOS و Android</li>
+              <li>واجهة استخدام أساسية</li>
+              <li>دعم عبر البريد الإلكتروني</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card popular">
+              <h3>الموبايل - احترافية</h3>
+              <p>تطبيق متقدم مع نظام خلفي (Backend)</p>
+              <div class="price">$3,499</div>
+              <ul class="features">
+              <li>تصميم وتجربة استخدام مخصصة</li>
+              <li>تكامل مع واجهات API</li>
+              <li>إشعارات فورية</li>
+              <li>تسجيل دخول المستخدمين</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+
+          <div class="card">
+              <h3>الموبايل - مؤسسات</h3>
+              <p>حلول تطبيقات واسعة النطاق</p>
+              <div class="price">$7,999+</div>
+              <ul class="features">
+              <li>جميع المزايا الاحترافية</li>
+              <li>دعم على مدار الساعة</li>
+              <li>خادم سحابي قابل للتوسع</li>
+              <li>ترحيل البيانات</li>
+              </ul>
+              <a href="contact.html#contact-form" class="btn">ابدأ الآن</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Custom Solution -->
+  <div class="custom">
+      <div class="left">
+          <h1>تحتاج إلى حل مخصص؟</h1>
+          <p>لا تجد الباقة التي تناسب متطلباتك الخاصة؟ نحن نوفر حلولاً مخصصة مصممة حسب احتياجات عملك.</p>
+          <a href="contact.html#contact-form" id="btn-custom" style="background:#3b82f6">اطلب عرض سعر مخصص</a>
+      </div>
+      <div class="right">
+          <h4>تشمل الحلول المخصصة</h4>
+          <ul>
+              <li>وظائف مخصصة وفق احتياجاتك</li>
+              <li>تكامل مع الأنظمة الحالية</li>
+              <li>بنية قابلة للتوسع للنمو المستقبلي</li>
+              <li>خيارات مرنة للميزانية</li>
+          </ul>
+      </div>
+  </div>
+  
+  <!-- accordion -->
+     
+  <div class="accordion">
+       <h2>الأسئلة الشائعة</h2>
+       <p class="subtitle">اعثر على إجابات للأسئلة الأكثر شيوعاً حول باقاتنا وخدماتنا</p>
+
+      <div class="accordion-item">
+      <div class="accordion-header">هل تقدمون باقات مخصصة؟</div>
+      <div class="accordion-content">
+         <br>
+         <p>
+              نعم، نحن ندرك أن لكل عمل متطلبات خاصة. 
+              بينما نوفر باقات قياسية كنقطة بداية، 
+              يسعدنا تخصيص حل يتناسب تماماً مع احتياجاتك وميزانيتك. 
+              يرجى التواصل معنا لمناقشة متطلباتك.
+          </p>
+          <br>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+      <div class="accordion-header">ما هو الوقت المعتاد لإنجاز المشاريع؟</div>
+      <div class="accordion-content">
+          <br>
+          <p>
+              يختلف الوقت حسب حجم المشروع وتعقيده. عادةً تستغرق المواقع البسيطة من 2 إلى 4 أسابيع، 
+              بينما قد تستغرق تطبيقات الويب أو برامج سطح المكتب المعقدة من 8 إلى 12 أسبوعاً أو أكثر. 
+              خلال الاستشارة الأولى، سنزودك بجدول زمني مفصل بناءً على مشروعك.
+          </p>
+          <br>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+      <div class="accordion-header">هل توفرون دعماً بعد الانتهاء من المشروع؟</div>
+      <div class="accordion-content">
+          <br>
+          <p>
+              نعم، نقدم باقات دعم وصيانة متنوعة لضمان استمرار عمل برامجك بسلاسة. 
+              يشمل الدعم إصلاح الأخطاء، تحديثات الأمان، والمساعدة التقنية. 
+              يمكننا مناقشة خطة الدعم المناسبة خلال الاستشارة.
+          </p>
+          <br>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+      <div class="accordion-header">ما هي آلية الدفع لديكم؟</div>
+      <div class="accordion-content">
+          <br>
+          <p>
+              عادةً نطلب دفعة أولى 50% لبدء العمل، والباقي 50% عند اكتمال المشروع. 
+              للمشاريع الكبيرة يمكننا وضع جدول دفع يعتمد على مراحل الإنجاز. 
+              نقبل التحويلات البنكية وبطاقات الائتمان الرئيسية.
+          </p>
+          <br>
+      </div>
+      </div>
+
+      <div class="accordion-item">
+      <div class="accordion-header">هل يمكنكم مساعدتنا في ترحيل البيانات من أنظمتنا الحالية؟</div>
+      <div class="accordion-content">
+          <br>
+          <p>
+              نعم، نحن نوفر خدمات ترحيل البيانات لمساعدتك على الانتقال من أنظمتك الحالية إلى الحل الجديد. 
+              يعمل فريقنا معك لضمان عملية انتقال سلسة بأقل قدر من التعطيل لأعمالك.
+          </p>
+          <br>
+      </div>
+      </div>
+  </div>
+
+  
+</div>
+ <!-- // container end  -->
+
+  <!-- الفوتر -->
+        <footer>
+            <div class="footer-container">
+
+            <!-- العلامة التجارية -->
+            <div class="brand">
+                <h2>BSP <span>Soft</span></h2>
+                <p style=" color:#9ca3af;">خدمات احترافية في تطوير البرمجيات وتصميم الحلول للشركات بمختلف أحجامها.</p>
+                <div class="social">
+                <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i></a>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+                <a href="#"><i class="ri-linkedin-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+
+            <!-- روابط سريعة -->
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                  <li><a href="index.html">الرئيسية</a></li>
+                  <li><a href="about.html">من نحن</a></li>
+                  <li><a href="services.html">خدماتنا</a></li>
+                  <li><a href="packages.html">الباقات</a></li>
+                  <li><a href="projects.html">المشاريع</a></li>
+                </ul>
+            </div>
+
+            <!-- الخدمات -->
+            <div class="footer-col">
+                <h4>الخدمات</h4>
+                <ul>
+                  <li><a href="#">تطوير تطبيقات سطح المكتب</a></li>
+                  <li><a href="web-application.html">تطوير تطبيقات الويب</a></li>
+                  <li><a href="#">التصميم الجرافيكي</a></li>
+                </ul>
+            </div>
+
+            <!-- تواصل معنا -->
+            <div class="contact-us" dir="ltr">
+                <h4 style=" color:#fff;">تواصل معنا</h4>
+                <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> | رابط صفحة التواصل</a></p>
+                <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> | +967 739021709 </a></p>
+                <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i>| +967 737537914 </a></p>
+                <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> | programmerbsp3@gmail.com </a></p>
+                <p><a href="#"><i class="ri-map-pin-line"></i> | المقر الرئيسي لشركة BSP</a></p>
+            </div>
+            
+            </div>
+        </footer>
+        <!--// الفوتر //-->
+
+
+       <!-- الفوتر السفلي -->
+       <div class="footer-footer">
+          <ul>
+            <li><a href="#">معلومات عن شركة BSP |</a></li>
+            <li><a href="#">المستندات والتقارير |</a></li>
+            <li><a href="#">عملاؤنا</a></li>
+          </ul>
+          <span>جميع الحقوق محفوظة لشركة <code>BSP</code> 2024.</span>
+        </div>
+        <!--// الفوتر السفلي //-->
+
+    <script>
+        const menubtn=document.getElementById('menubtn');
+        const menuNav=document.getElementById('navMenu');
+        menubtn.addEventListener('click',function(){
+          menuNav.classList.toggle('hidden');
+        });
+    </script>
+
+    <script>
+        const tabs = document.querySelectorAll(".tab-btn");
+        const contents = document.querySelectorAll(".tab-content");
+        tabs.forEach(btn=>{
+            btn.addEventListener("click",()=>{
+            tabs.forEach(b=>b.classList.remove("active"));
+            btn.classList.add("active");
+            contents.forEach(c=>c.style.display="none");
+            document.getElementById(btn.dataset.tab).style.display="block";
+            });
+        });
+        
+        const headers = document.querySelectorAll(".accordion-header");
+
+            headers.forEach(header => {
+            header.addEventListener("click", () => {
+                header.classList.toggle("active");
+                const content = header.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+            });
+    </script>
+
+</body>
+</html>

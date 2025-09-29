@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://use.typekit.net/gmi8hjy.css">
+  <link rel="stylesheet" href="../dist/style-ar.css"> 
+ <style>
+   
+    .contact-hero {
+      text-align: center;
+      margin-bottom: 40px;
+      background-color: #ddd;
+      padding: 40px;
+    }
+    .contact-wrapper {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap; /* عشان في الشاشات الصغيرة تصير فوق بعض */
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h3 {
+      margin-bottom: 15px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .info-item i {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-right: 10px;
+    }
+
+    .info-item h5 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .info-item p {
+      margin: 2px 0 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .contact-form {
+      flex: 2 1 400px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .form-row .form-group {
+      flex: 1 1 200px;
+    }
+
+    .contact-form input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+
+    /* موبايل: العناصر فوق بعض */
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        flex-direction: column;
+       }
+      .form-row {
+        flex-direction: row;
+         gap: 6px; /* بدل ما يكون فيه فراغ كبير */
+        }
+       
+    }
+  </style>
+</head>
+<body>
+
+   <!-- الهيدر -->
+
+   <header>
+     <h1 id="logo">BSP <span>Soft</span></h1>
+     <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="packages.html">الباقات</a>
+        <a href="projects.html">المشاريع</a>
+        <a href="index.html#members">الأعضاء</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html" id="active-page">تواصل معنا</a>
+        <a href="../contact.html"><i class="ri-translate-2"></i>En</a>
+     </nav>
+     <div id="menubtn"><i class="ri-menu-line"></i></div>
+     <div id="navMenu" class="hidden">
+       <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="services.html">الخدمات</a>
+        <a href="packages.html">الباقات</a>
+        <a href="projects.html">المشاريع</a>
+        <a href="index.html#members">الأعضاء</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html" id="active-page">تواصل معنا</a>
+        <a href="../contact.html"><i class="ri-translate-2"></i>En</a>
+      </nav>
+    </div>
+  </header>
+  <!--// الهيدر //-->
+
+  <div class="container-contact">
+     <div class="contact-hero">
+         <h1>تواصل معنا</h1>
+         <br>
+         <p>هل لديك استفسار أو ترغب في بدء مشروعك؟ تواصل معنا اليوم.</p>
+         <br><br>
+      </div> 
+
+    <div class="contact-wrapper">
+      
+      <!-- معلومات التواصل -->
+      <div class="contact-info">
+        <h3>معلومات التواصل</h3>
+        <p>يسعدنا تواصلك معنا، يمكنك استخدام البيانات التالية أو ملء النموذج وسنرد عليك في أقرب وقت.</p>
+        
+        <div class="info-item">
+          <i class="ri-phone-line"></i>
+          <div>
+            <h5>الهاتف</h5>
+            <p>+967 739021709<br>+967 737537914</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="ri-mail-line"></i>
+          <div>
+            <h5>البريد الإلكتروني</h5>
+            <p>programmerbsp3@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="ri-map-pin-line"></i>
+          <div>
+            <h5>العنوان</h5>
+            <p>المقر الرئيسي لشركة BSPSoft</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <i class="ri-time-line"></i>
+          <div>
+            <h5>ساعات العمل</h5>
+            <p>الإثنين - الجمعة: 9:00 ص - 5:00 م<br>السبت: 10:00 ص - 2:00 م</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- نموذج التواصل -->
+      <div class="contact-form" id="contact-form">
+        <h3>أرسل رسالة</h3>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="الاسم الكامل" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="البريد الإلكتروني" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="الموضوع">
+          </div>
+          <div class="form-group">
+            <textarea rows="5" placeholder="رسالتك"></textarea>
+          </div>
+          <button type="submit">إرسال</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+   <!-- الفوتر -->
+
+    <footer>
+        <div class="footer-container">
+
+        <!-- العلامة التجارية -->
+        <div class="brand">
+            <h2>BSP <span>Soft</span></h2>
+            <p style=" color:#9ca3af;">خدمات احترافية في تطوير البرمجيات وتصميمها لجميع أنواع الأعمال.</p>
+            <div class="social">
+            <a href="https://github.com/BSPSoft/" target="_blank"><i class="ri-github-line" ></i></a>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-linkedin-fill"></i></a>
+            <a href="#"><i class="ri-instagram-fill"></i></a>
+            </div>
+        </div>
+
+        <!-- روابط سريعة -->
+        <div class="footer-col">
+            <h4>روابط سريعة</h4>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="services.html">الخدمات</a></li>
+              <li><a href="packages.html">الباقات</a></li>
+              <li><a href="projects.html">المشاريع</a></li>
+            </ul>
+        </div>
+
+        <!-- الخدمات -->
+        <div class="footer-col">
+            <h4>الخدمات</h4>
+            <ul>
+              <li><a href="#">تطوير تطبيقات سطح المكتب</a></li>
+              <li><a href="web-application.html">تطوير تطبيقات الويب</a></li>
+              <li><a href="#">تصميم جرافيك</a></li>
+            </ul>
+        </div>
+
+        <!-- تواصل معنا -->
+        <div class="contact-us" dir="ltr">
+            <h4 style="color:#fff;">تواصل معنا</h4>
+            <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> | رابط صفحة التواصل</a></p>
+            <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> | +967 739021709 </a></p>
+            <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i>| +967 737537914 </a></p>
+            <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> | programmerbsp3@gmail.com </a></p>
+            <p><a href="#"><i class="ri-map-pin-line"></i> | المقر الرئيسي لشركة BSP</a></p>
+        </div>
+
+        </div>
+    </footer>
+    <!--// الفوتر //-->
+
+
+   <!-- الفوتر الأخير -->
+   <div class="footer-footer">
+      <ul>
+        <li><a href="#">معلومات عن شركة BSP |</a></li>
+        <li><a href="#">الوثائق والتقارير |</a></li>
+        <li><a href="#">عملاؤنا</a></li>
+      </ul>
+      <span>جميع الحقوق محفوظة لشركة <code>BSP</code> 2024.</span>
+    </div>
+    <!--// الفوتر الأخير //-->
+
+
+<script>
+  const menubtn=document.getElementById('menubtn');
+  const menuNav=document.getElementById('navMenu');
+  menubtn.addEventListener('click',function(){
+    menuNav.classList.toggle('hidden');
+  });
+
+   </script>
+
+</body>
+</html>
