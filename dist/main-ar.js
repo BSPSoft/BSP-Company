@@ -23,6 +23,7 @@
     };
     const movSlide=(indexProject,state)=>{
      switch(indexProject){
+      
       // project votig
       case 1:
          let votingSlider=document.getElementById('votingSlider');
@@ -33,13 +34,10 @@
           imageSliderProjects.voting.index --;
          }
          
-         //console.log('index image frist', imageSliderProjects.voting.index);
          if(imageSliderProjects.voting.index === totalslidesV){imageSliderProjects.voting.index=0};
          if(imageSliderProjects.voting.index === -1){imageSliderProjects.voting.index= totalslidesV -1};
        
-        //  let indexV=imageSliderProjects.voting.index;
-        //  console.log('index :'+ index, ' index image :'+imageSliderProjects.voting.index);
-        //  console.log('total',totalslides);
+       
          if(imageSliderProjects.voting.index>=totalslidesV){
            imageSliderProjects.voting.index =0;
          }else if(imageSliderProjects.voting.index < 0 ){
@@ -47,7 +45,7 @@
          }else{
           imageSliderProjects.voting.index=imageSliderProjects.voting.index;
          }
-         votingSlider.setAttribute('src','images/project/'+imageSliderProjects.voting.images[imageSliderProjects.voting.index]);
+         votingSlider.setAttribute('src','../images/project/'+imageSliderProjects.voting.images[imageSliderProjects.voting.index]);
         break;
 
      // project BSP School
@@ -71,7 +69,7 @@
          }else{
           imageSliderProjects.BspSchool.index=imageSliderProjects.BspSchool.index;
          }
-         schoolSlider.setAttribute('src','images/project/'+imageSliderProjects.BspSchool.images[imageSliderProjects.BspSchool.index]);
+         schoolSlider.setAttribute('src','../images/project/'+imageSliderProjects.BspSchool.images[imageSliderProjects.BspSchool.index]);
         break;
 
        // project notesSlider 
@@ -84,11 +82,10 @@
           imageSliderProjects.BspNotes.index --;
          }
          
-         //console.log('index image frist', imageSliderProjects.voting.index);
          if(imageSliderProjects.BspNotes.index === totalslidesN){imageSliderProjects.BspNotes.index=0};
          if(imageSliderProjects.BspNotes.index === -1){imageSliderProjects.BspNotes.index= totalslidesN -1};
        
-       
+        
          if(imageSliderProjects.BspNotes.index>=totalslidesN){
            imageSliderProjects.BspNotes.index =0;
          }else if(imageSliderProjects.BspNotes.index < 0 ){
@@ -96,11 +93,11 @@
          }else{
           imageSliderProjects.BspNotes.index=imageSliderProjects.BspNotes.index;
          }
-         notesSlider.setAttribute('src','images/project/'+imageSliderProjects.BspNotes.images[imageSliderProjects.BspNotes.index]);
+         notesSlider.setAttribute('src','../images/project/'+imageSliderProjects.BspNotes.images[imageSliderProjects.BspNotes.index]);
 
-         break;
+       break;
 
-      // project shoppingSlider 
+        // project shoppingSlider 
       case 4:
          let shoppingSlider = document.getElementById('shoppingSlider');
          const totalslideShopping = imageSliderProjects.shopping.images.length;
@@ -122,7 +119,7 @@
          }else{
           imageSliderProjects.shopping.index=imageSliderProjects.shopping.index;
          }
-         shoppingSlider.setAttribute('src','images/project/'+imageSliderProjects.shopping.images[imageSliderProjects.shopping.index]);
+         shoppingSlider.setAttribute('src','../images/project/'+imageSliderProjects.shopping.images[imageSliderProjects.shopping.index]);
 
        break;
 
@@ -148,7 +145,7 @@
          }else{
           imageSliderProjects.goatCoin.index=imageSliderProjects.goatCoin.index;
          }
-         goatCoinSlider.setAttribute('src','images/project/'+imageSliderProjects.goatCoin.images[imageSliderProjects.goatCoin.index]);
+         goatCoinSlider.setAttribute('src','../images/project/'+imageSliderProjects.goatCoin.images[imageSliderProjects.goatCoin.index]);
 
        break;
 

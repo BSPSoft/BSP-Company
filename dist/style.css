@@ -452,6 +452,31 @@
   }
 
 
+   .project-card.website::after{
+            content:"WEBSITE";
+            position:absolute;top:12px;right:12px;
+            background:#3b82f6;color:#fff;
+            font-size:11px;font-weight:700;
+            padding:3px 8px;border-radius:10px;
+        }
+
+        .project-card.desktop::after{
+            content: "DESKTOP";
+            position:absolute;top:12px;right:12px;
+            background:#3b82f6;color:#fff;
+            font-size:11px;font-weight:700;
+            padding:3px 8px;border-radius:10px;
+        }
+
+        .project-card.phone::after{
+            content: "PHONE";
+            position:absolute;top:12px;right:12px;
+            background:#3b82f6;color:#fff;
+            font-size:11px;font-weight:700;
+            padding:3px 8px;border-radius:10px;
+        }
+
+
   /* contact us */
   .contact{
     min-height: 200px;
