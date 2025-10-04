@@ -756,4 +756,56 @@
       max-width: 80%;
    }
 
-}   
+}  
+
+
+
+/* الكلاس الأساسي للتنبيه */
+.alert {
+  padding: 15px 20px;      /* مسافة داخلية */
+  border-radius: 6px;      /* زوايا دائرية */
+  margin: 10px 0;          /* مسافة فوق وتحت */
+  border: 1px solid transparent;
+  font-family: Arial, sans-serif;
+  position: relative;      /* علشان نتحكم بزر الإغلاق */
+}
+
+/* تنبيه النجاح */
+.alert-success {
+  background-color: #d4edda;  /* أخضر فاتح */
+  color: #155724;             /* أخضر غامق للنص */
+  border-color: #c3e6cb;      /* حدود بلون مناسب */
+}
+
+/* تنبيه الخطأ */
+.alert-danger {
+  background-color: #f8d7da;  /* أحمر فاتح */
+  color: #721c24;             /* أحمر غامق للنص */
+  border-color: #f5c6cb;      /* حدود بلون مناسب */
+}
+
+/* زر الإغلاق */
+.alert button {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.alert button:hover {
+  color: red;   /* عند التمرير يصير أحمر */
+}
+
+/* شكل الكود داخل الرسالة */
+.alert code {
+  background: #f1f1f1;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+}
+

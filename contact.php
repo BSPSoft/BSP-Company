@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,8 +138,8 @@
         <a href="projects.html">Projects</a>
         <a href="index.html#members">Membars</a>
         <a href="about.html">About</a>
-        <a href="contact.html" id="active-page">Contact us</a>
-        <a href="ar/contact.html"><i class="ri-translate-2"></i>ع</a>
+        <a href="contact.php" id="active-page">Contact us</a>
+        <a href="ar/contact.php"><i class="ri-translate-2"></i>ع</a>
      </nav>
      <div id="menubtn"><i class="ri-menu-line"></i></div>
      <div id="navMenu" class="hidden">
@@ -147,8 +150,8 @@
         <a href="projects.html">Projects</a>
         <a href="index.html#members">Membars</a>
         <a href="about.html">About</a>
-        <a href="contact.html" id="active-page">Contact us</a>
-        <a href="ar/contact.html"><i class="ri-translate-2"></i>ع</a>
+        <a href="contact.php" id="active-page">Contact us</a>
+        <a href="ar/contact.php"><i class="ri-translate-2"></i>ع</a>
       </nav>
     </div>
      
@@ -207,23 +210,29 @@
       <!-- نموذج التواصل -->
       <div class="contact-form" id="contact-form">
         <h3>Send Us a Message</h3>
-        <form>
+        <form action="mail/sendMail.php" method="post">
           <div class="form-row">
             <div class="form-group">
-              <input type="text" placeholder="Full Name" required>
+              <input type="text" placeholder="Full Name" name="fullName" required>
             </div>
             <div class="form-group">
-              <input type="email" placeholder="Email Address" required>
+              <input type="email" placeholder="Email Address" name="email" required>
             </div>
           </div>
           <div class="form-group">
-            <input type="text" placeholder="Subject">
+            <input type="text" placeholder="Subject" name="subject" required>
           </div>
           <div class="form-group">
-            <textarea rows="5" placeholder="Your Message"></textarea>
+            <textarea rows="5" placeholder="Your Message" name="message"></textarea>
           </div>
-          <button type="submit">Send Message</button>
+          <button type="submit" name="send">Send Message</button>
         </form>
+
+        <?php 
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']);
+          ?>
+        
       </div>
 
     </div>
@@ -271,7 +280,7 @@
             <!-- Contact Us -->
             <div class="contact-us">
                 <h4 style=" color:#fff;">Contact Us</h4>
-                <p><a href="contact.html"><i class="ri-customer-service-2-line"></i> link contact us</a></p>
+                <p><a href="contact.php"><i class="ri-customer-service-2-line"></i> link contact us</a></p>
                 <p><a href="tel:+967739021709"><i class="ri-phone-fill"></i> +967 739021709</a></p>
                 <p><a href="https://wa.me/+967737537914" target="_blank"><i class="ri-phone-fill"></i> +967 737537914</a></p>
                 <p><a href="mailto:programmerbsp3@gmail.com"><i class="ri-mail-fill"></i> programmerbsp3@gmail.com</a></p>
