@@ -228,6 +228,24 @@
           <button type="submit" name="send">Send Message</button>
         </form>
 
+        <div id="alertContainer"></div>
+        
+        <script>
+          // قراءة Query String
+          const params = new URLSearchParams(window.location.search);
+          const status = params.get('status');
+          const alertContainer = document.getElementById('alertContainer');
+
+          if(status) {
+              let type = status === 'success' ? 'success' : 'danger';
+              let msg  = status === 'success' ? '✅ Your message has been sent successfully.' 
+                                            : '❌ There was an error sending your message.';
+              alertContainer.innerHTML = `<div class="alert alert-${type}">
+                                              ${msg} 
+                                              <button onclick="this.parentElement.style.display='none'">X</button>
+                                          </div>`;
+          }
+        </script>
         <!-- <?php 
             echo $_SESSION['message']; 
             unset($_SESSION['message']);
